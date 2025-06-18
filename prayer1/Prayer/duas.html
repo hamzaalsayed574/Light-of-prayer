@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>الأدعية - مُضيء</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --main: #4CAF50;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --text: #111;
+      --card: #f4f4f4;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #f9f9f9;
+      --card: #1e1e1e;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      color: #000;
+      font-size: 2rem;
+      text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 20px #FFA500, 0 0 30px #FF8C00;
+      animation: glow-orange 2sease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px orange;
+      }
+
+      to {
+        text-shadow: 0 0 15px orange, 0 0 25px orange;
+      }
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+    }
+
+    #theme-toggle {
+      position: absolute;
+      top: 100px;
+      left: 20px;
+      font-size: 1.7rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    h1.title {
+      text-align: center;
+      color: var(--main);
+      text-shadow: 0 0 5px var(--main), 0 0 10px var(--main);
+      animation: glow 1.5s infinite alternate;
+    }
+
+    .dua-section {
+      margin-top: 3rem;
+    }
+
+    .dua-section h2 {
+      color: var(--main);
+      border-bottom: 2px solid var(--main);
+      padding-bottom: 5px;
+    }
+
+    .dua-card {
+      background: var(--card);
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      line-height: 2;
+    }
+
+    .dua-card button {
+      margin-top: 0.5rem;
+      background: var(--main);
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--card);
+      color: var(--text);
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+        footer {
+      background-color: #4CAF50;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      border-radius: 15px 15px 0 0;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <ul class="nav-links">
+<li><a href="prayer.html">الرئيسية</a></li>
+      <li><a href="duas.html">أدعية</a></li>
+      <li><a href="#about">من نحن</a></li>
+      <li><a href="quran.html">القرآن الكريم</a></li>
+      <li><a href="msbaha.html">المسبحة</a></li>
+      <li><a href="names.html">أسماء الله الحسنى</a></li>
+      <li><a href="ghazawat.html">غزوات الرسول</a></li>
+      <li><a href="donate.html">تبرع</a></li>
+      <li><a href="prayer_times.html">مواقيت الصلاة</a></li>
+    </ul>
+    <div class="logo">مُضيء</div>
+  </nav>
+
+  <button id="theme-toggle" onclick="toggleTheme()">🌓</button>
+
+  <div class="container">
+    <h1 class="title">أدعية مختارة</h1>
+
+    <div class="dua-section" data-aos="fade-up">
+      <h2>أدعية متنوعة</h2>
+      <div class="dua-card">
+        <div class="dua-text">اللهم اهدني وسددني</div><button onclick="copyDua(this)">📋 نسخ</button>
+      </div>
+      <div class="dua-card">
+        <div class="dua-text">اللهم إني أعوذ بك من الهم والحزن</div><button onclick="copyDua(this)">📋 نسخ</button>
+      </div>
+      <div class="dua-card">
+        <div class="dua-text">اللهم اجعلني من التوابين</div><button onclick="copyDua(this)">📋 نسخ</button>
+      </div>
+      <div class="dua-card">
+        <div class="dua-text">اللهم اجعل القرآن ربيع قلبي</div><button onclick="copyDua(this)">📋 نسخ</button>
+      </div>
+      <div class="dua-card">
+        <div class="dua-text">اللهم قني عذابك يوم تبعث عبادك</div><button onclick="copyDua(this)">📋 نسخ</button>
+      </div>
+      <div class="dua-card">
+        <div class="dua-text">اللهم إني أعوذ بك من فتنة المحيا والممات</div><button onclick="copyDua(this)">📋
+          نسخ</button>
+      </div>
+      <div class="dua-card">
+        <div class="dua-text">اللهم ارزقني حسن الخاتمة</div><button onclick="copyDua(this)">📋 نسخ</button>
+      </div>
+    </div>
+
+    <div class="dua-section" data-aos="fade-up">
+      <h2>أدعية الشفاء</h2>
+      <div class="dua-card">
+        <div class="dua-text">اللهم رب الناس أذهب البأس واشفِ أنت الشافي، لا شفاء إلا شفاؤك</div><button
+          onclick="copyDua(this)">📋 نسخ</button>
+      </div>
+      <div class="dua-card">
+        <div class="dua-text">أسأل الله العظيم رب العرش العظيم أن يشفيك</div><button onclick="copyDua(this)">📋
+          نسخ</button>
+      </div>
+    </div>
+
+    <div class="dua-section" data-aos="fade-up">
+      <h2>أدعية الحاجة</h2>
+      <div class="dua-card">
+        <div class="dua-text">اللهم اقضِ حاجتي، وفرّج كربتي، ويسر أمري</div><button onclick="copyDua(this)">📋
+          نسخ</button>
+      </div>
+      <div class="dua-card">
+        <div class="dua-text">اللهم افتح لي أبواب رحمتك، واغنني بفضلك عمن سواك</div><button onclick="copyDua(this)">📋
+          نسخ</button>
+      </div>
+    </div>
+
+    <div class="dua-section" data-aos="fade-up">
+      <h2>أدعية التوبة</h2>
+      <div class="dua-card">
+        <div class="dua-text">رب اغفر لي وتب علي إنك أنت التواب الرحيم</div><button onclick="copyDua(this)">📋
+          نسخ</button>
+      </div>
+      <div class="dua-card">
+        <div class="dua-text">اللهم اغفر لي ذنبي كله، دقه وجله، وأوله وآخره</div><button onclick="copyDua(this)">📋
+          نسخ</button>
+      </div>
+    </div>
+
+  </div>
+
+<footer>
+    <div>
+      <a href="prayer.html">الرئيسية</a> |
+      <a href="azkar.html">الأذكار</a> |
+      <a href="quran.html">القرآن الكريم</a> |
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+    <p style="font-size: 0.9rem;">© 2025 جميع الحقوق محفوظة لموقع <strong>مُضيء</strong></p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.setAttribute("data-theme", html.getAttribute("data-theme") === "light" ? "dark" : "light");
+    }
+    function copyDua(btn) {
+      const text = btn.previousElementSibling.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = "✔ نُسخ";
+        setTimeout(() => btn.textContent = "📋 نسخ", 1500);
+      });
+    }
+  </script>
+</body>
+
+</html>

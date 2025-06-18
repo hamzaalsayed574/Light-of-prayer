@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>غزوة الخندق - مُضيء</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --text: #111;
+      --card: #f4f4f4;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #f9f9f9;
+      --card: #1e1e1e;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      flex-direction: row-reverse;
+    }
+
+    .nav-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--text);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: var(--text);
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: var(--card);
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        padding: 1rem;
+        z-index: 1000;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+
+    #theme-toggle {
+      position: absolute;
+      top: 90px;
+      left: 20px;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      z-index: 1000;
+    }
+
+    .container {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1.title {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #4CAF50;
+    }
+
+    .content {
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      line-height: 1.8;
+    }
+
+    footer {
+      background-color: #4CAF50;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      border-radius: 15px 15px 0 0;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .glow {
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ffd700; }
+      to   { text-shadow: 0 0 15px #ffa500; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <span class="nav-brand glow">مُضيء</span>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="prayer.html">الرئيسية</a></li>
+      <li><a href="duas.html">أدعية</a></li>
+      <li><a href="quran.html">القرآن الكريم</a></li>
+      <li><a href="azkar.html">الأذكار</a></li>
+      <li><a href="msbaha.html">المسبحة</a></li>
+      <li><a href="names.html">أسماء الله الحسنى</a></li>
+      <li><a href="ghazawat.html">غزوات الرسول</a></li>
+      <li><a href="donate.html">تبرع</a></li>
+    </ul>
+  </nav>
+
+  <button id="theme-toggle" onclick="toggleTheme()" title="تبديل الوضع">🌓</button>
+
+  <div class="container">
+    <h1 class="title">غزوة الخندق (الأحزاب)</h1>
+    <div class="content">
+      <p>وقعت غزوة الخندق في السنة الخامسة للهجرة، حين تحالفت قريش وقبائل عربية ضد المسلمين، وبلغ عدد الأحزاب عشرة آلاف مقاتل، بينما كان المسلمون نحو 3000 فقط.</p>
+      <p><strong>سبب التسمية:</strong> سميت "الخندق" لأن النبي ﷺ أشار على الصحابة بحفر خندق حول المدينة لمنع اقتحامها، وهي فكرة أتى بها سلمان الفارسي رضي الله عنه.</p>
+      <p><strong>تفاصيل المعركة:</strong></p>
+      <ul>
+        <li>تحالف الكفار لحصار المدينة من كل الجهات.</li>
+        <li>أُصيبت قلوبهم بالرعب بسبب الخندق المفاجئ.</li>
+        <li>تسلل بعضهم ليخون من الداخل (بنو قريظة)، لكن تم التصدي لهم.</li>
+        <li>استمر الحصار قرابة الشهر.</li>
+      </ul>
+      <p><strong>النتائج:</strong> نصر الله المسلمين بريح شديدة اقتلعت خيام الكفار، وهزمهم الله دون قتال مباشر كبير، وقال الله: <em>“ورد الله الذين كفروا بغيظهم لم ينالوا خيرًا”</em>.</p>
+      <p>كانت غزوة الخندق علامة على بداية قوة المسلمين سياسيًا وعسكريًا، وانكسار هيبة قريش.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>contact
+      <a href="prayer.html">الرئيسية</a> |
+      <a href="azkar.html">الأذكار</a> |
+      <a href="quran.html">القرآن الكريم</a> |
+      <a href="#contact">تواصل معنا</a>
+    </div>
+    <p style="font-size: 0.9rem;">© 2025 جميع الحقوق محفوظة لموقع <strong>مُضيء</strong></p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.setAttribute("data-theme", html.getAttribute("data-theme") === "light" ? "dark" : "light");
+    }
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>

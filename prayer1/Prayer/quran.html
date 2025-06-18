@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>القرآن الكريم - مُضيء</title>
+  <link rel="stylesheet" href="index prayer.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    [data-theme="light"] {
+      --bg: #fefefe;
+      --text: #111;
+      --card: #f7f9fc;
+      --highlight: #eeeeee;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #f2f2f2;
+      --card: #1e1e1e;
+      --highlight: #2a2a2a;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      flex-direction: row-reverse;
+    }
+
+    .nav-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--text);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: bold;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: var(--text);
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: var(--card);
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        text-align: right;
+        padding: 1rem;
+        z-index: 999;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+    }
+
+    #theme-toggle {
+      position: absolute;
+      top: 90px;
+      left: 20px;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: var(--card);
+      border-radius: 8px;
+    }
+
+    #surah-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #4CAF50;
+    }
+
+    #surahList li {
+      padding: 0.8rem;
+      margin-bottom: 0.5rem;
+      background: var(--highlight);
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: 0.2s;
+    }
+
+    #surahList li:hover {
+      background: #cce5ff;
+    }
+
+    .ayah {
+      background: var(--highlight);
+      padding: 1.2rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      font-size: 1.5rem;
+      line-height: 2.3;
+      text-align: right;
+      font-weight: 500;
+    }
+
+    footer {
+      background-color: #4CAF50;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      border-radius: 15px 15px 0 0;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #ffc107;
+      }
+
+      to {
+        text-shadow: 0 0 15px #ff9800;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <span class="nav-brand glow">مُضيء</span>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="prayer.html">الرئيسية</a></li>
+      <li><a href="duas.html">أدعية</a></li>
+      <li><a href="quran.html">القرآن الكريم</a></li>
+      <li><a href="azkar.html">الأذكار</a></li>
+      <li><a href="msbaha.html">المسبحة</a></li>
+      <li><a href="names.html">أسماء الله الحسنى</a></li>
+      <li><a href="ghazawat.html">غزوات الرسول</a></li>
+      <li><a href="donate.html">تبرع</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <button onclick="toggleTheme()" id="theme-toggle" title="تبديل الوضع">🌓</button>
+
+  <!-- ✅ المحتوى -->
+  <div class="container" id="quran-list" data-aos="fade-up">
+    <h2 style="text-align:center;">قائمة السور</h2>
+    <ul id="surahList"></ul>
+  </div>
+
+  <div class="container" id="surah-content" data-aos="fade-up">
+    <h2 id="surah-title"></h2>
+    <div id="ayahs"></div>
+  </div>
+
+  <footer>
+    <div>
+      <a href="prayer.html">الرئيسية</a> |
+      <a href="azkar.html">الأذكار</a> |
+      <a href="quran.html">القرآن الكريم</a> |
+      <a href="#contact">تواصل معنا</a>
+    </div>
+    <p style="font-size: 0.9rem;">© 2025 جميع الحقوق محفوظة لموقع <strong>مُضيء</strong></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.setAttribute("data-theme", html.getAttribute("data-theme") === "light" ? "dark" : "light");
+    }
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    const surahList = document.getElementById("surahList");
+    const surahTitle = document.getElementById("surah-title");
+    const ayahsDiv = document.getElementById("ayahs");
+
+    async function loadSurahs() {
+      const res = await fetch("https://api.alquran.cloud/v1/surah");
+      const data = await res.json();
+      data.data.forEach(surah => {
+        const li = document.createElement("li");
+        li.textContent = `${surah.number}. ${surah.name}`;
+        li.onclick = () => loadSurah(surah.number, surah.name);
+        surahList.appendChild(li);
+      });
+    }
+
+    async function loadSurah(number, name) {
+      surahTitle.textContent = name;
+      ayahsDiv.innerHTML = "جاري التحميل...";
+      const res = await fetch(`https://api.alquran.cloud/v1/surah/${number}`);
+      const data = await res.json();
+      ayahsDiv.innerHTML = "";
+      data.data.ayahs.forEach(ayah => {
+        const div = document.createElement("div");
+        div.className = "ayah";
+        div.innerHTML = `${ayah.text} <span style="color:#4CAF50;">(${ayah.numberInSurah})</span>`;
+        ayahsDiv.appendChild(div);
+      });
+      document.getElementById("surah-content").scrollIntoView({ behavior: "smooth" });
+    }
+
+    window.onload = loadSurahs;
+  </script>
+
+</body>
+</html>

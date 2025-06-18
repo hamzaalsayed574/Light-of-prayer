@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ar" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أسماء الله الحسنى - مُضيء</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      direction: rtl;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --text: #111;
+      --card: #f9f9f9;
+    }
+
+    [data-theme="dark"] {
+      --bg: #121212;
+      --text: #eee;
+      --card: #1e1e1e;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card);
+      padding: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    span.nav-brand.glow {
+      font-size: xx-large;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #ffd700;
+      }
+
+      to {
+        text-shadow: 0 0 15px #ffa500;
+      }
+    }
+
+    .container {
+      padding: 2rem 1rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .name-card {
+      background: var(--card);
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .meaning {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .tag {
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      background: #eee;
+      padding: 2px 6px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #4CAF50;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      border-radius: 15px 15px 0 0;
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #theme-toggle {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    #theme-toggle {
+      position: absolute;
+      top: 90px;
+      left: 20px;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      z-index: 1000;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="prayer.html">الرئيسية</a></li>
+      <li><a href="duas.html">أدعية</a></li>
+      <li><a href="quran.html">القرآن الكريم</a></li>
+      <li><a href="azkar.html">الأذكار</a></li>
+      <li><a href="msbaha.html">المسبحة</a></li>
+      <li><a href="names.html">أسماء الله الحسنى</a></li>
+    </ul>
+    <span class="nav-brand glow">مُضيء</span>
+  </nav>
+
+  <button onclick="toggleTheme()" id="theme-toggle" title="تبديل الوضع">🌓</button>
+
+  <div class="container">
+    <h1 style="text-align:center; color:#4CAF50;">أسماء الله الحسنى</h1>
+    <div class="grid">
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الله')">📋</button>
+        <div class='name'>1. الله</div>
+        <div class='meaning'>الاسم الأعظم الجامع لكل الأسماء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الرحمن')">📋</button>
+        <div class='name'>2. الرحمن</div>
+        <div class='meaning'>ذو الرحمة العامة لجميع الخلق</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الرحيم')">📋</button>
+        <div class='name'>3. الرحيم</div>
+        <div class='meaning'>ذو الرحمة الخاصة بالمؤمنين</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الملك')">📋</button>
+        <div class='name'>4. الملك</div>
+        <div class='meaning'>المالك المتصرف في كل الأمور</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('القدوس')">📋</button>
+        <div class='name'>5. القدوس</div>
+        <div class='meaning'>المنزّه عن النقائص</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('السلام')">📋</button>
+        <div class='name'>6. السلام</div>
+        <div class='meaning'>المانح للسلام</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('المؤمن')">📋</button>
+        <div class='name'>7. المؤمن</div>
+        <div class='meaning'>المؤمن لعباده ومصدقهم</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('المهيمن')">📋</button>
+        <div class='name'>8. المهيمن</div>
+        <div class='meaning'>الرقيب على كل شيء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('العزيز')">📋</button>
+        <div class='name'>9. العزيز</div>
+        <div class='meaning'>الذي لا يُغلب</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الجبار')">📋</button>
+        <div class='name'>10. الجبار</div>
+        <div class='meaning'>الذي يُجبر الضعفاء ويقهر الجبابرة</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('المتكبر')">📋</button>
+        <div class='name'>11. المتكبر</div>
+        <div class='meaning'>المتعالي عن صفات الخلق</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('الخالق')">📋</button>
+        <div class='name'>12. الخالق</div>
+        <div class='meaning'>الذي خلق كل شيء</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('البارئ')">📋</button>
+        <div class='name'>13. البارئ</div>
+        <div class='meaning'>الذي برأ الخلق بإبداع</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('المصور')">📋</button>
+        <div class='name'>14. المصور</div>
+        <div class='meaning'>الذي صور خلقه كيف شاء</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الغفار')">📋</button>
+        <div class='name'>15. الغفار</div>
+        <div class='meaning'>الذي يكثر من المغفرة</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('القهار')">📋</button>
+        <div class='name'>16. القهار</div>
+        <div class='meaning'>الذي يقهر الجبابرة والظالمين</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الوهاب')">📋</button>
+        <div class='name'>17. الوهاب</div>
+        <div class='meaning'>كثير العطاء بلا مقابل</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('الرزاق')">📋</button>
+        <div class='name'>18. الرزاق</div>
+        <div class='meaning'>الذي يرزق جميع خلقه</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('الفتاح')">📋</button>
+        <div class='name'>19. الفتاح</div>
+        <div class='meaning'>الذي يفتح أبواب الخير</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('العليم')">📋</button>
+        <div class='name'>20. العليم</div>
+        <div class='meaning'>الذي يعلم كل شيء</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('القابض')">📋</button>
+        <div class='name'>21. القابض</div>
+        <div class='meaning'>الذي يقبض الرزق</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('الباسط')">📋</button>
+        <div class='name'>22. الباسط</div>
+        <div class='meaning'>الذي يبسط الرزق</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الخافض')">📋</button>
+        <div class='name'>23. الخافض</div>
+        <div class='meaning'>الذي يخفض الظالمين</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الرافع')">📋</button>
+        <div class='name'>24. الرافع</div>
+        <div class='meaning'>الذي يرفع المؤمنين</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('المعز')">📋</button>
+        <div class='name'>25. المعز</div>
+        <div class='meaning'>الذي يعز من يشاء</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('المذل')">📋</button>
+        <div class='name'>26. المذل</div>
+        <div class='meaning'>الذي يذل من يشاء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('السميع')">📋</button>
+        <div class='name'>27. السميع</div>
+        <div class='meaning'>الذي يسمع كل الأصوات</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('البصير')">📋</button>
+        <div class='name'>28. البصير</div>
+        <div class='meaning'>الذي يرى كل شيء</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الحكم')">📋</button>
+        <div class='name'>29. الحكم</div>
+        <div class='meaning'>الحاكم بين عباده</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('العدل')">📋</button>
+        <div class='name'>30. العدل</div>
+        <div class='meaning'>الذي لا يظلم</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('اللطيف')">📋</button>
+        <div class='name'>31. اللطيف</div>
+        <div class='meaning'>الرفيق بعباده</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('الخبير')">📋</button>
+        <div class='name'>32. الخبير</div>
+        <div class='meaning'>العليم ببواطن الأمور</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الحليم')">📋</button>
+        <div class='name'>33. الحليم</div>
+        <div class='meaning'>الذي لا يعجل بالعقوبة</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('العظيم')">📋</button>
+        <div class='name'>34. العظيم</div>
+        <div class='meaning'>له العظمة الكاملة</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الغفور')">📋</button>
+        <div class='name'>35. الغفور</div>
+        <div class='meaning'>الذي يغفر الذنوب</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الشكور')">📋</button>
+        <div class='name'>36. الشكور</div>
+        <div class='meaning'>الذي يشكر القليل من العمل</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('العلي')">📋</button>
+        <div class='name'>37. العلي</div>
+        <div class='meaning'>المرتفع فوق خلقه</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الكبير')">📋</button>
+        <div class='name'>38. الكبير</div>
+        <div class='meaning'>الذي كل شيء دونه</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('الحفيظ')">📋</button>
+        <div class='name'>39. الحفيظ</div>
+        <div class='meaning'>الذي يحفظ كل شيء</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('المقيت')">📋</button>
+        <div class='name'>40. المقيت</div>
+        <div class='meaning'>الذي يقيت كل مخلوق</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الحسيب')">📋</button>
+        <div class='name'>41. الحسيب</div>
+        <div class='meaning'>الذي يكفي عباده</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الجليل')">📋</button>
+        <div class='name'>42. الجليل</div>
+        <div class='meaning'>العظيم الشأن</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الكريم')">📋</button>
+        <div class='name'>43. الكريم</div>
+        <div class='meaning'>الذي يعطي بلا حدود</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('الرقيب')">📋</button>
+        <div class='name'>44. الرقيب</div>
+        <div class='meaning'>الذي يراقب كل شيء</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('المجيب')">📋</button>
+        <div class='name'>45. المجيب</div>
+        <div class='meaning'>الذي يجيب الدعاء</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الواسع')">📋</button>
+        <div class='name'>46. الواسع</div>
+        <div class='meaning'>الذي وسع كل شيء</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الحكيم')">📋</button>
+        <div class='name'>47. الحكيم</div>
+        <div class='meaning'>يضع الأمور في مواضعها</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الودود')">📋</button>
+        <div class='name'>48. الودود</div>
+        <div class='meaning'>المحب لعباده</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('المجيد')">📋</button>
+        <div class='name'>49. المجيد</div>
+        <div class='meaning'>العظيم في ذاته</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('الباعث')">📋</button>
+        <div class='name'>50. الباعث</div>
+        <div class='meaning'>يبعث الخلق يوم القيامة</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الشهيد')">📋</button>
+        <div class='name'>51. الشهيد</div>
+        <div class='meaning'>لا يغيب عنه شيء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الحق')">📋</button>
+        <div class='name'>52. الحق</div>
+        <div class='meaning'>الذي لا يتغير</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الوكيل')">📋</button>
+        <div class='name'>53. الوكيل</div>
+        <div class='meaning'>الذي يتوكل عليه العباد</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('القوي')">📋</button>
+        <div class='name'>54. القوي</div>
+        <div class='meaning'>صاحب القوة المطلقة</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('المتين')">📋</button>
+        <div class='name'>55. المتين</div>
+        <div class='meaning'>الثابت الذي لا يضعف</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الولي')">📋</button>
+        <div class='name'>56. الولي</div>
+        <div class='meaning'>الناصر لعباده</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الحميد')">📋</button>
+        <div class='name'>57. الحميد</div>
+        <div class='meaning'>المحمود في كل حال</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('المحصي')">📋</button>
+        <div class='name'>58. المحصي</div>
+        <div class='meaning'>أحصى كل شيء عددًا</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('المبدئ')">📋</button>
+        <div class='name'>59. المبدئ</div>
+        <div class='meaning'>بدأ الخلق</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('المعيد')">📋</button>
+        <div class='name'>60. المعيد</div>
+        <div class='meaning'>يعيد الخلق بعد الموت</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('المحيي')">📋</button>
+        <div class='name'>61. المحيي</div>
+        <div class='meaning'>يحيي الخلق</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('المميت')">📋</button>
+        <div class='name'>62. المميت</div>
+        <div class='meaning'>يميت من يشاء</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الحي')">📋</button>
+        <div class='name'>63. الحي</div>
+        <div class='meaning'>الذي لا يموت</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('القيوم')">📋</button>
+        <div class='name'>64. القيوم</div>
+        <div class='meaning'>القائم على كل شيء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الواجد')">📋</button>
+        <div class='name'>65. الواجد</div>
+        <div class='meaning'>لا يفتقر إلى شيء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الماجد')">📋</button>
+        <div class='name'>66. الماجد</div>
+        <div class='meaning'>له المجد الكامل</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الواحد')">📋</button>
+        <div class='name'>67. الواحد</div>
+        <div class='meaning'>المنفرد بالألوهية</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الصمد')">📋</button>
+        <div class='name'>68. الصمد</div>
+        <div class='meaning'>يُقصد في الحوائج</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('القادر')">📋</button>
+        <div class='name'>69. القادر</div>
+        <div class='meaning'>له القدرة المطلقة</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('المقتدر')">📋</button>
+        <div class='name'>70. المقتدر</div>
+        <div class='meaning'>يقدر على كل شيء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('المقدم')">📋</button>
+        <div class='name'>71. المقدم</div>
+        <div class='meaning'>يقدم من يشاء</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('المؤخر')">📋</button>
+        <div class='name'>72. المؤخر</div>
+        <div class='meaning'>يؤخر من يشاء</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الأول')">📋</button>
+        <div class='name'>73. الأول</div>
+        <div class='meaning'>ليس قبله شيء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الآخر')">📋</button>
+        <div class='name'>74. الآخر</div>
+        <div class='meaning'>ليس بعده شيء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الظاهر')">📋</button>
+        <div class='name'>75. الظاهر</div>
+        <div class='meaning'>ظهر كل شيء لقدرته</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الباطن')">📋</button>
+        <div class='name'>76. الباطن</div>
+        <div class='meaning'>لا تدركه الأبصار</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الوالي')">📋</button>
+        <div class='name'>77. الوالي</div>
+        <div class='meaning'>المتولي لأمر خلقه</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('المتعالي')">📋</button>
+        <div class='name'>78. المتعالي</div>
+        <div class='meaning'>الذي تعالى عن النقائص</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('البر')">📋</button>
+        <div class='name'>79. البر</div>
+        <div class='meaning'>الذي يحسن لعباده</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('التواب')">📋</button>
+        <div class='name'>80. التواب</div>
+        <div class='meaning'>يقبل التوبة</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('المنتقم')">📋</button>
+        <div class='name'>81. المنتقم</div>
+        <div class='meaning'>الذي ينتقم من الظالمين</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('العفو')">📋</button>
+        <div class='name'>82. العفو</div>
+        <div class='meaning'>يعفو عن الذنوب</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الرؤوف')">📋</button>
+        <div class='name'>83. الرؤوف</div>
+        <div class='meaning'>كثير الرحمة</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('مالك الملك')">📋</button>
+        <div class='name'>84. مالك الملك</div>
+        <div class='meaning'>مالك كل شيء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('ذو الجلال والإكرام')">📋</button>
+        <div class='name'>85. ذو الجلال والإكرام</div>
+        <div class='meaning'>صاحب العظمة والكرامة</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('المقسط')">📋</button>
+        <div class='name'>86. المقسط</div>
+        <div class='meaning'>العادل في حكمه</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('الجامع')">📋</button>
+        <div class='name'>87. الجامع</div>
+        <div class='meaning'>يجمع الخلائق</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الغني')">📋</button>
+        <div class='name'>88. الغني</div>
+        <div class='meaning'>لا يحتاج لأحد</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('المغني')">📋</button>
+        <div class='name'>89. المغني</div>
+        <div class='meaning'>يغني من يشاء</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('المانع')">📋</button>
+        <div class='name'>90. المانع</div>
+        <div class='meaning'>يمنع من يشاء</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الضار')">📋</button>
+        <div class='name'>91. الضار</div>
+        <div class='meaning'>يصيب من يشاء بالضر</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('النافع')">📋</button>
+        <div class='name'>92. النافع</div>
+        <div class='meaning'>ينفع من يشاء</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('النور')">📋</button>
+        <div class='name'>93. النور</div>
+        <div class='meaning'>منور السماوات</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الهادي')">📋</button>
+        <div class='name'>94. الهادي</div>
+        <div class='meaning'>يهدي من يشاء</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='أفعال'>
+        <button class='copy-btn' onclick="copyName('البديع')">📋</button>
+        <div class='name'>95. البديع</div>
+        <div class='meaning'>الخالق بلا مثال</div>
+        <div class='tag'>أفعال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الباقي')">📋</button>
+        <div class='name'>96. الباقي</div>
+        <div class='meaning'>الدائم بلا نهاية</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جلال'>
+        <button class='copy-btn' onclick="copyName('الوارث')">📋</button>
+        <div class='name'>97. الوارث</div>
+        <div class='meaning'>الذي يرث الأرض</div>
+        <div class='tag'>جلال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الرشيد')">📋</button>
+        <div class='name'>98. الرشيد</div>
+        <div class='meaning'>الهادي إلى الصواب</div>
+        <div class='tag'>جمال</div>
+      </div>
+      <div class='name-card' data-category='جمال'>
+        <button class='copy-btn' onclick="copyName('الصبور')">📋</button>
+        <div class='name'>99. الصبور</div>
+        <div class='meaning'>لا يعجل بالعقوبة</div>
+        <div class='tag'>جمال</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <a href="prayer.html">الرئيسية</a> |
+      <a href="azkar.html">الأذكار</a> |
+      <a href="quran.html">القرآن الكريم</a> |
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+    <p style="font-size: 0.9rem;">© 2025 جميع الحقوق محفوظة لموقع <strong>مُضيء</strong></p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.setAttribute("data-theme", html.getAttribute("data-theme") === "light" ? "dark" : "light");
+    }
+    function copyName(name) {
+      navigator.clipboard.writeText(name);
+      alert("✅ تم نسخ الاسم: " + name);
+    }
+  </script>
+
+</body>
+
+</html>
